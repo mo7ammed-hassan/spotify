@@ -15,13 +15,19 @@ class GetStartedView extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
                 image: AssetImage(AppImages.introBG),
               ),
             ),
+          ),
+          // to make black hover
+          Container(
+            color: Colors.black.withOpacity(0.15),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
             child: Column(
               children: [
                 Align(
@@ -65,10 +71,6 @@ class GetStartedView extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          // to make black hover
-          Container(
-            color: Colors.black.withOpacity(0.15),
           ),
         ],
       ),
