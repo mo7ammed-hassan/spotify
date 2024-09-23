@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
-import 'package:spotify/core/configs/theme/app_colors.dart';
+import 'package:spotify/features/choose_mode/presentation/widgets/shoose_mode_section.dart';
 
 class ChooseModeView extends StatelessWidget {
   const ChooseModeView({super.key});
@@ -38,13 +38,13 @@ class ChooseModeView extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
-                    fontSize: 18,
+                    fontSize: 22,
                   ),
                 ),
                 const SizedBox(
-                  height: 21,
+                  height: 40,
                 ),
-                //
+                const ChooseModeSection(),
                 const SizedBox(
                   height: 50,
                 ),
