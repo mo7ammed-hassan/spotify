@@ -27,7 +27,10 @@ class SignupView extends StatelessWidget {
               height: 20,
             ),
             const AuthSupportText(),
-            _fullNamedTextFiled(),
+            const SizedBox(
+              height: 50,
+            ),
+            _fullNameField(context),
           ],
         ),
       ),
@@ -44,7 +47,11 @@ class SignupView extends StatelessWidget {
     );
   }
 
-  Widget _fullNamedTextFiled() {
-    return const TextField();
+  Widget _fullNameField(context) {
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: 'Full Name',
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
   }
 }
