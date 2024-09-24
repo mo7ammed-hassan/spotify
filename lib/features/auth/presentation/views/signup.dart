@@ -13,11 +13,6 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AuthActionText(
-        onPressed: () {},
-        title: 'Do you have an account?',
-        actionText: 'sign In',
-      ),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -55,7 +50,7 @@ class SignupView extends StatelessWidget {
               title: 'Creat Account',
             ),
             const SizedBox(
-              height: 35,
+              height: 25,
             ),
             const BasicDivider(),
           ],
