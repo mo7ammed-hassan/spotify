@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 
 class SignupOrSigninView extends StatelessWidget {
@@ -17,6 +18,10 @@ class SignupOrSigninView extends StatelessWidget {
           Align(
             alignment: Alignment.bottomRight,
             child: SvgPicture.asset(AppVectors.bottomPattern),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Image.asset(AppImages.authBG),
           ),
         ],
       ),
