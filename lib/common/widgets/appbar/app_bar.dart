@@ -14,6 +14,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
+      centerTitle: true,
       title: title ?? const Text(''),
       leading: IconButton(
         onPressed: () {
