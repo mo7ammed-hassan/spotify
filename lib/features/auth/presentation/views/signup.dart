@@ -56,6 +56,11 @@ class SignupView extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: AuthActionText(
+        onPressed: () {},
+        title: 'Do you have an account?',
+        actionText: 'sign In',
+      ),
     );
   }
 
