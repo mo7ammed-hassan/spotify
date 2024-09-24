@@ -9,26 +9,31 @@ class ChooseModeCard extends StatelessWidget {
     super.key,
     required this.modeTitle,
     required this.vectorPath,
+    this.onTap,
   });
   final String modeTitle;
   final String vectorPath;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipOval(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              width: 80,
-              height: 80,
-              decoration: BoxDecoration(
-                color: const Color(0xff30393c).withOpacity(0.5),
-                shape: BoxShape.circle,
-              ),
-              child: SvgPicture.asset(
-                vectorPath,
-                fit: BoxFit.none,
+        GestureDetector(
+          onTap: onTap,
+          child: ClipOval(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                  color: const Color(0xff30393c).withOpacity(0.5),
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(
+                  vectorPath,
+                  fit: BoxFit.none,
+                ),
               ),
             ),
           ),

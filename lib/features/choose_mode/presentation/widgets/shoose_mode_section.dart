@@ -9,19 +9,21 @@ class ChooseModeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ChooseModeCard(
           modeTitle: 'Dark Mode',
           vectorPath: AppVectors.moon,
+          onTap: () {},
         ),
-        SizedBox(
+        const SizedBox(
           width: 60,
         ),
         ChooseModeCard(
           modeTitle: 'Light Mode',
           vectorPath: AppVectors.sun,
+          onTap: () {},
         ),
       ],
     );
