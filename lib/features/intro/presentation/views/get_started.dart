@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify/common/helper/navigator.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
@@ -61,11 +62,8 @@ class GetStartedView extends StatelessWidget {
                 BasicAppButton(
                   title: 'Get started',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChooseModeView(),
-                      ),
+                    context.push(
+                      const ChooseModeView(),
                     );
                   },
                 ),
