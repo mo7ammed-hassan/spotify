@@ -5,9 +5,7 @@ import 'package:spotify/features/choose_mode/presentation/blocs/theme_cubit.dart
 import 'package:spotify/features/choose_mode/presentation/widgets/shoose_mode_card.dart';
 
 class ChooseModeSection extends StatelessWidget {
-  const ChooseModeSection({
-    super.key,
-  });
+  const ChooseModeSection({super.key});
 
   @override
   Widget build(BuildContext context) {
