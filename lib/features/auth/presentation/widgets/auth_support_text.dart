@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 
 class AuthSupportText extends StatelessWidget {
@@ -10,19 +11,19 @@ class AuthSupportText extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
-            text: 'If you need any support ',
+          TextSpan(
+            text: 'If You Need Any Support ',
             style: TextStyle(
               fontSize: 14,
-              color: AppColors.grey,
+              color: context.isDarkMode ? AppColors.grey : Colors.black,
             ),
           ),
           TextSpan(
-            text: 'click here',
+            text: 'click Here',
             style: const TextStyle(
               fontSize: 14,
               color: AppColors.primary,
-              decoration: TextDecoration.underline,
+              // decoration: TextDecoration.underline,
             ),
             recognizer: TapGestureRecognizer()..onTap = () {},
           ),

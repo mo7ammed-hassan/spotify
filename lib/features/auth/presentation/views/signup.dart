@@ -21,7 +21,10 @@ class SignupView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+        padding: const EdgeInsets.symmetric(
+          vertical: 40,
+          horizontal: 30,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
