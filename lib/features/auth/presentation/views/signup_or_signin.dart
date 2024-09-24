@@ -8,7 +8,6 @@ import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/features/auth/presentation/views/signup.dart';
-import 'package:spotify/features/choose_mode/presentation/views/choose_mode.dart';
 
 class SignupOrSigninView extends StatelessWidget {
   const SignupOrSigninView({super.key});
