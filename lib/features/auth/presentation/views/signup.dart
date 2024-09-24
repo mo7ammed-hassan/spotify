@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
+import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/common/widgets/divider/basic_divider.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/features/auth/presentation/widgets/auth_action_text.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_support_text.dart';
 
 class SignupView extends StatelessWidget {
@@ -10,6 +13,11 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: AuthActionText(
+        onPressed: () {},
+        title: 'Do you have an account?',
+        actionText: 'sign In',
+      ),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo,
@@ -31,6 +39,25 @@ class SignupView extends StatelessWidget {
               height: 50,
             ),
             _fullNameField(context),
+            const SizedBox(
+              height: 20,
+            ),
+            _emailField(context),
+            const SizedBox(
+              height: 20,
+            ),
+            _passwordField(context),
+            const SizedBox(
+              height: 40,
+            ),
+            BasicAppButton(
+              onPressed: () {},
+              title: 'Creat Account',
+            ),
+            const SizedBox(
+              height: 35,
+            ),
+            const BasicDivider(),
           ],
         ),
       ),
@@ -51,6 +78,22 @@ class SignupView extends StatelessWidget {
     return TextField(
       decoration: const InputDecoration(
         hintText: 'Full Name',
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
+  }
+
+  Widget _emailField(context) {
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: 'Enter Email',
+      ).applyDefaults(Theme.of(context).inputDecorationTheme),
+    );
+  }
+
+  Widget _passwordField(context) {
+    return TextField(
+      decoration: const InputDecoration(
+        hintText: 'Password',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
     );
   }

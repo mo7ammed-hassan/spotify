@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BasicAppButton extends StatelessWidget {
-  final Function()? onPressed;
+  final Function() onPressed;
   final String title;
   final double? height;
   const BasicAppButton({
     super.key,
-    this.onPressed,
+    required this.onPressed,
     required this.title,
     this.height,
   });
