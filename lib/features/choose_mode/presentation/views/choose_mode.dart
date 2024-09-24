@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/features/auth/presentation/views/signup_or_signin.dart';
 import 'package:spotify/features/choose_mode/presentation/widgets/shoose_mode_section.dart';
 
 class ChooseModeView extends StatelessWidget {
@@ -54,7 +55,7 @@ class ChooseModeView extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const ChooseModeView(),
+                        builder: (context) => const SignupOrSigninView(),
                       ),
                     );
                   },
