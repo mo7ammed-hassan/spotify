@@ -5,7 +5,7 @@ extension NavigatorHelper on BuildContext {
     Navigator.push(
       this,
       MaterialPageRoute(
-        builder: (context) => widget,
+        builder: (context) => view,
       ),
     );
   }
