@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
+import 'package:spotify/common/helper/navigator.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
+import 'package:spotify/features/auth/presentation/views/signup.dart';
+import 'package:spotify/features/choose_mode/presentation/views/choose_mode.dart';
 
 class SignupOrSigninView extends StatelessWidget {
   const SignupOrSigninView({super.key});
@@ -67,7 +70,9 @@ class SignupOrSigninView extends StatelessWidget {
                         flex: 1,
                         child: BasicAppButton(
                           title: 'Register',
-                          onPressed: () {},
+                          onPressed: () {
+                            context.push(const SignupView());
+                          },
                         ),
                       ),
                       const SizedBox(
