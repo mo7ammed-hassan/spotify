@@ -19,14 +19,14 @@ class AppTheme {
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
           color: Colors.black,
-          width: 0.4,
+          width: 0.5,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
           color: Colors.black,
-          width: 0.4,
+          width: 0.5,
         ),
       ),
     ),
@@ -59,14 +59,14 @@ class AppTheme {
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
           color: Colors.white,
-          width: 0.4,
+          width: 0.5,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(30),
         borderSide: const BorderSide(
           color: Colors.white,
-          width: 0.4,
+          width: 0.5,
         ),
       ),
     ),
