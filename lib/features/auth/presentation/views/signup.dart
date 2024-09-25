@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:spotify/common/helper/navigator.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/common/widgets/divider/basic_divider.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/features/auth/presentation/views/signin.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_action_text.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_support_text.dart';
 
@@ -60,7 +62,9 @@ class SignupView extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: AuthActionText(
-        onPressed: () {},
+        onPressed: () {
+          context.push(const SigninView());
+        },
         title: 'Do you have an account?',
         actionText: 'sign In',
       ),
