@@ -6,7 +6,7 @@ import 'package:spotify/service_locator.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   @override
-  Future<void> signin() {
+  Future<Either> signin() {
     // TODO: implement signin
     throw UnimplementedError();
   }
