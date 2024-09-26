@@ -10,6 +10,7 @@ import 'package:spotify/features/auth/domain/use_cases/signup.dart';
 import 'package:spotify/features/auth/presentation/views/signin.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_action_text.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_support_text.dart';
+import 'package:spotify/features/home/presentation/views/home.dart';
 import 'package:spotify/service_locator.dart';
 
 class SignupView extends StatefulWidget {
@@ -80,7 +81,7 @@ class _SignupViewState extends State<SignupView> {
                     ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   },
                   (r) {
-                    // Go To Home View
+                    context.push(const HomeView());
                   },
                 );
               },
