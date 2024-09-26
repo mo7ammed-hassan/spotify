@@ -21,6 +21,8 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
         email: createUserReq.email,
         password: createUserReq.password,
       );
-    } on FirebaseAuthException catch (e) {}
+    } on FirebaseAuthException catch (e) {
+      // throw AuthException(message: e.message);
+    }
   }
 }
