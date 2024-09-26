@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/common/helper/navigator.dart';
+import 'package:spotify/common/helper/snackbar.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/common/widgets/divider/basic_divider.dart';
@@ -42,7 +43,7 @@ class _SigninViewState extends State<SigninView> {
           height: 38,
         ),
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(
           vertical: 40,
           horizontal: 30,
@@ -77,8 +78,7 @@ class _SigninViewState extends State<SigninView> {
 
                 result.fold(
                   (l) {
-                    var snackbar = SnackBar(content: Text(l));
-                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    context.showSnackBar(l);
                   },
                   (r) {
                     context.pushAndRemoveUtil(const HomeView());
