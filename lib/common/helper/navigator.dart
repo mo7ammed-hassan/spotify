@@ -10,6 +10,16 @@ extension NavigatorHelper on BuildContext {
     );
   }
 
+  void pushAndRemoveUtil(Widget view) {
+    Navigator.pushAndRemoveUntil(
+      this,
+      MaterialPageRoute(
+        builder: (context) => view,
+      ),
+      (route) => false,
+    );
+  }
+
   void pop() {
     Navigator.pop(this);
   }

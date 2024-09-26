@@ -5,12 +5,32 @@ import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/common/widgets/divider/basic_divider.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/features/auth/data/models/auth/signin_user_req.dart';
+import 'package:spotify/features/auth/domain/use_cases/signin.dart';
 import 'package:spotify/features/auth/presentation/views/signup.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_action_text.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_support_text.dart';
+import 'package:spotify/features/home/presentation/views/home.dart';
+import 'package:spotify/service_locator.dart';
 
-class SigninView extends StatelessWidget {
+class SigninView extends StatefulWidget {
   const SigninView({super.key});
+
+  @override
+  State<SigninView> createState() => _SigninViewState();
+}
+
+class _SigninViewState extends State<SigninView> {
+  final TextEditingController _email = TextEditingController();
+
+  final TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +67,24 @@ class SigninView extends StatelessWidget {
               height: 40,
             ),
             BasicAppButton(
-              onPressed: () {},
+              onPressed: () async {
+                var result = await getIt<SigninUseCase>().call(
+                  params: SigninUserReq(
+                    email: _email.text,
+                    password: _password.text,
+                  ),
+                );
+
+                result.fold(
+                  (l) {
+                    var snackbar = SnackBar(content: Text(l));
+                    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                  },
+                  (r) {
+                    context.pushAndRemoveUtil(const HomeView());
+                  },
+                );
+              },
               title: 'Sign In',
             ),
             const SizedBox(
@@ -79,6 +116,7 @@ class SigninView extends StatelessWidget {
 
   Widget _emailField(context) {
     return TextField(
+      controller: _email,
       decoration: const InputDecoration(
         hintText: 'Enter Email',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
@@ -87,6 +125,7 @@ class SigninView extends StatelessWidget {
 
   Widget _passwordField(context) {
     return TextField(
+      controller: _password,
       decoration: const InputDecoration(
         hintText: 'Password',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),

@@ -26,6 +26,13 @@ class _SignupViewState extends State<SignupView> {
   final TextEditingController _email = TextEditingController();
 
   final TextEditingController _password = TextEditingController();
+  @override
+  void dispose() {
+    _fullName.dispose();
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +88,7 @@ class _SignupViewState extends State<SignupView> {
                     ScaffoldMessenger.of(context).showSnackBar(snackbar);
                   },
                   (r) {
-                    context.push(const HomeView());
+                    context.pushAndRemoveUtil(const HomeView());
                   },
                 );
               },
