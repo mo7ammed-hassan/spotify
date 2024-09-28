@@ -24,6 +24,11 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
       isScrollable: true,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       indicatorColor: AppColors.primary,
+      unselectedLabelStyle: TextStyle(
+        color: context.isDarkMode
+            ? const Color(0xff616161)
+            : const Color(0xffBEBEBE),
+      ),
       padding: const EdgeInsets.symmetric(
         vertical: 40,
         horizontal: 16,
@@ -44,7 +49,7 @@ class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
     return Text(
       title,
       style: const TextStyle(
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
         fontSize: 18,
       ),
     );

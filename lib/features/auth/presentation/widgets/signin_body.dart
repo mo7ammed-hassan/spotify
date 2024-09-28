@@ -3,7 +3,7 @@ import 'package:spotify/common/helper/navigator.dart';
 import 'package:spotify/common/helper/snackbar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/common/widgets/divider/basic_divider.dart';
-import 'package:spotify/features/auth/data/models/auth/signin_user_req.dart';
+import 'package:spotify/features/auth/data/models/signin_user_req.dart';
 import 'package:spotify/features/auth/domain/use_cases/signin.dart';
 import 'package:spotify/features/auth/presentation/widgets/auth_support_text.dart';
 import 'package:spotify/features/home/presentation/views/home.dart';
