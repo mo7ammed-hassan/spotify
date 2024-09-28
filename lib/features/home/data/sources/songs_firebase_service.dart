@@ -7,7 +7,7 @@ abstract class SongsFirebaseService {
   Future<Either> getNewsSongs();
 }
 
-class SongsFirebaseServiceImpl extends SongsFirebaseServiceImpl {
+class SongsFirebaseServiceImpl extends SongsFirebaseService {
   @override
   Future<Either> getNewsSongs() async {
     try {
