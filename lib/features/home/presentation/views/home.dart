@@ -4,6 +4,7 @@ import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
 import 'package:spotify/features/home/presentation/widgets/home_tab_bar.dart';
+import 'package:spotify/features/home/presentation/widgets/play_list_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -25,6 +26,7 @@ class HomeView extends StatelessWidget {
           children: [
             _homeTopCard(),
             const HomeTabBar(),
+            const PlayListSection(),
           ],
         ),
       ),

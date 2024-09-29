@@ -31,7 +31,7 @@ class NewsSongsListView extends StatelessWidget {
                   ),
                   child: Align(
                     alignment: Alignment.bottomRight,
-                    child: playSoundIcon(context),
+                    child: _playSoundIcon(context),
                   ),
                 ),
               ),
@@ -59,7 +59,7 @@ class NewsSongsListView extends StatelessWidget {
     );
   }
 
-  Widget playSoundIcon(BuildContext context) {
+  Widget _playSoundIcon(BuildContext context) {
     return Container(
       height: 35,
       width: 35,
