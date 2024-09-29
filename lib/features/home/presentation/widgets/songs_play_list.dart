@@ -34,7 +34,9 @@ class SongsPlayListListView extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const SongPlayerView(),
+            builder: (context) => SongPlayerView(
+              song: song,
+            ),
           ),
         );
       },

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
+import 'package:spotify/features/home/domain/entities/song.dart';
+import 'package:spotify/features/song_player/presentation/widgets/song_player_body.dart';
 
 class SongPlayerView extends StatelessWidget {
-  const SongPlayerView({super.key});
+  final SongEntity song;
+  const SongPlayerView({super.key, required this.song});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,9 @@ class SongPlayerView extends StatelessWidget {
           ),
         ),
         title: const Text('Now playing'),
+      ),
+      body: SongPlayerBody(
+        song: song,
       ),
     );
   }
