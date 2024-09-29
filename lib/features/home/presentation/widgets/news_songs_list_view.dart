@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
+import 'package:spotify/common/helper/navigator.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
+import 'package:spotify/features/song_player/presentation/views/song_player.dart';
 
 class NewsSongsListView extends StatelessWidget {
   const NewsSongsListView({super.key, required this.songs});
@@ -13,46 +15,51 @@ class NewsSongsListView extends StatelessWidget {
       separatorBuilder: (context, index) => const SizedBox(width: 14),
       itemCount: songs.length,
       itemBuilder: (context, index) {
-        return SizedBox(
-          width: 160,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(
-                        '${AppUrls.firestorage}${songs[index].artist}$index.jpeg?${AppUrls.mediaAlt}',
+        return GestureDetector(
+          onTap: () {
+            context.push(const SongPlayer());
+          },
+          child: SizedBox(
+            width: 160,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                          '${AppUrls.firestorage}${songs[index].artist}$index.jpeg?${AppUrls.mediaAlt}',
+                        ),
                       ),
                     ),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: _playSoundIcon(context),
+                    ),
                   ),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: _playSoundIcon(context),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                Text(
+                  songs[index].title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Text(
-                songs[index].title,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
+                Text(
+                  songs[index].artist,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                  ),
                 ),
-              ),
-              Text(
-                songs[index].artist,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 13,
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
