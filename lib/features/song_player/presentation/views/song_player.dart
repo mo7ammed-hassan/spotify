@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 
 class SongPlayerView extends StatelessWidget {
@@ -6,10 +7,18 @@ class SongPlayerView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: BasicAppBar(
-        hideAction: false,
-        title: Text('Now playing'),
+        action: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.menu,
+            color: context.isDarkMode
+                ? const Color(0xffDDDDDD)
+                : const Color(0xff7D7D7D),
+          ),
+        ),
+        title: const Text('Now playing'),
       ),
     );
   }

@@ -5,12 +5,12 @@ import 'package:spotify/common/helper/navigator.dart';
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final bool hideBack;
-  final bool hideAction;
+  final Widget? action;
   const BasicAppBar({
     super.key,
     this.title,
     this.hideBack = false,
-    this.hideAction = true,
+    this.action,
   });
 
   @override
@@ -49,19 +49,9 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-      actions: hideAction
-          ? null
-          : [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.menu,
-                  color: context.isDarkMode
-                      ? const Color(0xffDDDDDD)
-                      : const Color(0xff7D7D7D),
-                ),
-              )
-            ],
+      actions: [
+        action ?? Container(),
+      ],
     );
   }
 
