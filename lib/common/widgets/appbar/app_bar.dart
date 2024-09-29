@@ -6,11 +6,13 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? title;
   final bool hideBack;
   final Widget? action;
+  final Widget? leadingWidget;
   const BasicAppBar({
     super.key,
     this.title,
     this.hideBack = false,
     this.action,
+    this.leadingWidget,
   });
 
   @override
@@ -26,7 +28,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
         fontWeight: FontWeight.w400,
       ),
       leading: hideBack
-          ? null
+          ? leadingWidget
           : IconButton(
               onPressed: () {
                 context.pop();

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
@@ -14,10 +15,32 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: BasicAppBar(
         hideBack: true,
+        leadingWidget: IconButton(
+          style: ButtonStyle(
+            iconColor: WidgetStatePropertyAll(
+              context.isDarkMode
+                  ? const Color(0xffCFCFCF)
+                  : const Color(0xff2D264B),
+            ),
+          ),
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            AppVectors.search,
+          ),
+        ),
         title: SvgPicture.asset(
           AppVectors.logo,
           width: 38,
           height: 38,
+        ),
+        action: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.more_vert_rounded,
+            color: context.isDarkMode
+                ? const Color(0xffDDDDDD)
+                : const Color(0xff7D7D7D),
+          ),
         ),
       ),
       body: SingleChildScrollView(

@@ -12,7 +12,7 @@ class SongPlayerView extends StatelessWidget {
         action: IconButton(
           onPressed: () {},
           icon: Icon(
-            Icons.menu,
+            Icons.more_vert_rounded,
             color: context.isDarkMode
                 ? const Color(0xffDDDDDD)
                 : const Color(0xff7D7D7D),
