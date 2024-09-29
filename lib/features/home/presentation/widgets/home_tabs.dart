@@ -2,25 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/core/configs/theme/app_colors.dart';
 
-class Tabs extends StatefulWidget {
-  const Tabs({super.key});
-
-  @override
-  State<Tabs> createState() => _TabsState();
-}
-
-class _TabsState extends State<Tabs> with SingleTickerProviderStateMixin {
-  late TabController _tabController;
-  @override
-  void initState() {
-    _tabController = TabController(vsync: this, length: 4);
-    super.initState();
-  }
+class HomeTabs extends StatelessWidget {
+  final TabController? tabController;
+  const HomeTabs({super.key, this.tabController});
 
   @override
   Widget build(BuildContext context) {
     return TabBar(
-      controller: _tabController,
+      controller: tabController,
       isScrollable: true,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       indicatorColor: AppColors.primary,
