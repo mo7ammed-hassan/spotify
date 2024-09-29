@@ -17,7 +17,7 @@ class NewsSongsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.push(const SongPlayer());
+            context.push(const SongPlayerView());
           },
           child: SizedBox(
             width: 160,
