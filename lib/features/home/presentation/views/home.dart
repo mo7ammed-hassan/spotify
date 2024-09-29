@@ -24,6 +24,9 @@ class HomeView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(
+              height: 28,
+            ),
             _homeTopCard(),
             const HomeTabBar(),
             const PlayListSection(),
@@ -36,7 +39,7 @@ class HomeView extends StatelessWidget {
   Widget _homeTopCard() {
     return Center(
       child: SizedBox(
-        height: 150,
+        height: 130,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -47,13 +50,12 @@ class HomeView extends StatelessWidget {
                 //width: 380,
               ),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 55),
-                child: Image.asset(
-                  AppImages.homeArtist,
-                ),
+            Positioned(
+              bottom: 0,
+              top: -50,
+              right: 55,
+              child: Image.asset(
+                AppImages.homeArtist,
               ),
             ),
           ],
