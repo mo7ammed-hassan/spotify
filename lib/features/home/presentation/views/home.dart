@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
 import 'package:spotify/core/configs/assets/app_images.dart';
 import 'package:spotify/core/configs/assets/app_vectors.dart';
+import 'package:spotify/features/home/presentation/widgets/home_tab_bar_view.dart';
 import 'package:spotify/features/home/presentation/widgets/tabs.dart';
 
 class HomeView extends StatelessWidget {
@@ -25,6 +26,10 @@ class HomeView extends StatelessWidget {
           children: [
             _homeTopCard(),
             const Tabs(),
+            const SizedBox(
+              height: 260,
+              child: HomeTabBarView(),
+            ),
           ],
         ),
       ),
