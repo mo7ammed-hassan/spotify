@@ -20,6 +20,7 @@ class SongsPlayListListView extends StatelessWidget {
         return _playListSongCard(
           context,
           song: songs[index],
+          index: index,
         );
       },
       separatorBuilder: (context, index) => const SizedBox(
@@ -28,7 +29,8 @@ class SongsPlayListListView extends StatelessWidget {
     );
   }
 
-  Widget _playListSongCard(context, {required SongEntity song}) {
+  Widget _playListSongCard(context,
+      {required SongEntity song, required int index}) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -36,6 +38,7 @@ class SongsPlayListListView extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => SongPlayerView(
               song: song,
+              index: index,
             ),
           ),
         );
@@ -84,8 +87,11 @@ class SongsPlayListListView extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.favorite_rounded,
-                    color: Color(0xff565656)),
+                icon: const Icon(
+                  Icons.favorite_rounded,
+                  color: Color(0xff565656),
+                  size: 26,
+                ),
               ),
             ],
           )

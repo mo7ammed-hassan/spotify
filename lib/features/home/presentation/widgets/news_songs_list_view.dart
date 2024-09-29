@@ -20,6 +20,7 @@ class NewsSongsListView extends StatelessWidget {
             context.push(
               SongPlayerView(
                 song: songs[index],
+                index: index,
               ),
             );
           },
@@ -29,19 +30,22 @@ class NewsSongsListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          '${AppUrls.firestorage}${songs[index].artist}$index.jpeg?${AppUrls.mediaAlt}',
+                  child: Hero(
+                    tag: index,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                            '${AppUrls.firestorage}${songs[index].artist}$index.jpeg?${AppUrls.mediaAlt}',
+                          ),
                         ),
                       ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: _playSoundIcon(context),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: _playSoundIcon(context),
+                      ),
                     ),
                   ),
                 ),

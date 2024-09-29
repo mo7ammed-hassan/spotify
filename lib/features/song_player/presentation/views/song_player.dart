@@ -6,7 +6,8 @@ import 'package:spotify/features/song_player/presentation/widgets/song_player_bo
 
 class SongPlayerView extends StatelessWidget {
   final SongEntity song;
-  const SongPlayerView({super.key, required this.song});
+  final int index;
+  const SongPlayerView({super.key, required this.song, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class SongPlayerView extends StatelessWidget {
       ),
       body: SongPlayerBody(
         song: song,
+        index: index,
       ),
     );
   }
