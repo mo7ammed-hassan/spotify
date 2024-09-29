@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
+import 'package:spotify/features/song_player/presentation/views/song_player.dart';
 
 class SongsPlayListListView extends StatelessWidget {
   final List<SongEntity> songs;
@@ -28,56 +29,66 @@ class SongsPlayListListView extends StatelessWidget {
   }
 
   Widget _playListSongCard(context, {required SongEntity song}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            _playSoundIcon(context),
-            const SizedBox(
-              width: 12,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  song.title,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SongPlayerView(),
+          ),
+        );
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              _playSoundIcon(context),
+              const SizedBox(
+                width: 12,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    song.title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                Text(
-                  song.artist,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
+                  const SizedBox(
+                    height: 3,
                   ),
-                ),
-              ],
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Text(
-              song.duration.toString().replaceAll('.', ':'),
-              style: const TextStyle(fontWeight: FontWeight.w400),
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            IconButton(
-              onPressed: () {},
-              icon:
-                  const Icon(Icons.favorite_rounded, color: Color(0xff565656)),
-            ),
-          ],
-        )
-      ],
+                  Text(
+                    song.artist,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text(
+                song.duration.toString().replaceAll('.', ':'),
+                style: const TextStyle(fontWeight: FontWeight.w400),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.favorite_rounded,
+                    color: Color(0xff565656)),
+              ),
+            ],
+          )
+        ],
+      ),
     );
   }
 
