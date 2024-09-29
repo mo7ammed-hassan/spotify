@@ -9,8 +9,19 @@ class NewsSongsListView extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return const Column(
-          children: [],
+        return SizedBox(
+          width: 160,
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(''),
+                  ),
+                ),
+              )
+            ],
+          ),
         );
       },
       separatorBuilder: (context, index) => const SizedBox(width: 14),
