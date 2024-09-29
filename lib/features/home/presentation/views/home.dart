@@ -36,7 +36,7 @@ class HomeView extends StatelessWidget {
   Widget _homeTopCard() {
     return Center(
       child: SizedBox(
-        height: 140,
+        height: 150,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -44,14 +44,13 @@ class HomeView extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: SvgPicture.asset(
                 AppVectors.homeTopCard,
+                //width: 380,
               ),
             ),
-            Positioned(
-              top: -40,
-              right: 0,
-              bottom: 0,
+            Align(
+              alignment: Alignment.bottomRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 45),
+                padding: const EdgeInsets.only(right: 55),
                 child: Image.asset(
                   AppImages.homeArtist,
                 ),

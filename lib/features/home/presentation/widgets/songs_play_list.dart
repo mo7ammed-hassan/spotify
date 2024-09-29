@@ -13,7 +13,8 @@ class SongsPlayListListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      itemCount: 3,
+      itemCount: songs.length,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return _playListSongCard(
           context,
