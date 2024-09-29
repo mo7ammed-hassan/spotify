@@ -36,7 +36,7 @@ class NewsSongsListView extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: 12,
               ),
               Text(
                 songs[index].title,
