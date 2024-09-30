@@ -33,11 +33,35 @@ class SongPlayer extends StatelessWidget {
                     .toDouble(),
                 onChanged: (value) {},
               ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    formatDuration(
+                      context.read<SongPlayerCubit>().audioPosition,
+                    ),
+                  ),
+                  Text(
+                    formatDuration(
+                      context.read<SongPlayerCubit>().audioDuration,
+                    ),
+                  ),
+                ],
+              ),
             ],
           );
         }
         return Container();
       },
     );
+  }
+
+  String formatDuration(Duration duration) {
+    int minutes = duration.inMinutes % 60;
+    int seconds = duration.inSeconds % 60;
+    return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 }
