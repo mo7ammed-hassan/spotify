@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/features/song_player/presentation/cubits/song_player_cubit.dart';
 import 'package:spotify/features/song_player/presentation/cubits/song_player_state.dart';
 
@@ -50,6 +51,28 @@ class SongPlayer extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {
+                  context.read<SongPlayerCubit>().playSongOrPause();
+                },
+                child: Container(
+                  height: 72,
+                  width: 72,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.primary,
+                  ),
+                  child: Icon(
+                    context.read<SongPlayerCubit>().audioPlayer.playing
+                        ? Icons.pause
+                        : Icons.play_arrow,
+                    size: 32,
+                  ),
+                ),
               ),
             ],
           );

@@ -41,7 +41,7 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
     }
   }
 
-  void playSongOrPause(String songUrl) async {
+  void playSongOrPause() async {
     if (audioPlayer.playing) {
       audioPlayer.pause();
     } else {
