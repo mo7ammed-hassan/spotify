@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
-import 'package:spotify/core/configs/theme/app_colors.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 
 class SongPlayerBody extends StatelessWidget {
@@ -71,7 +70,7 @@ class SongPlayerBody extends StatelessWidget {
           icon: const Icon(
             Icons.favorite_outline,
             color: Color(0xff565656),
-            size: 30,
+            size: 34,
           ),
         ),
       ],
