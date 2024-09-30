@@ -87,9 +87,11 @@ class SongsPlayListListView extends StatelessWidget {
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(
-                  Icons.favorite_rounded,
-                  color: Color(0xff565656),
+                icon: Icon(
+                  song.isFavorite
+                      ? Icons.favorite_rounded
+                      : Icons.favorite_outline_rounded,
+                  color: const Color(0xff565656),
                   size: 26,
                 ),
               ),
