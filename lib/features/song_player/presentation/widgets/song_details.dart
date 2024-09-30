@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/common/widgets/button/favorite_button.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 
 class SongDetails extends StatelessWidget {
@@ -32,13 +33,8 @@ class SongDetails extends StatelessWidget {
             ),
           ],
         ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.favorite_outline,
-            color: Color(0xff565656),
-            size: 34,
-          ),
+        FavoriteButton(
+          song: song,
         ),
       ],
     );
