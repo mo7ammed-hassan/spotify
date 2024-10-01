@@ -60,7 +60,7 @@ class SongsPlayListListView extends StatelessWidget {
                     song.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                   ),
                   const SizedBox(
@@ -98,8 +98,8 @@ class SongsPlayListListView extends StatelessWidget {
 
   Widget _playSoundIcon(BuildContext context) {
     return Container(
-      height: 45,
-      width: 45,
+      height: 50,
+      width: 50,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: context.isDarkMode
