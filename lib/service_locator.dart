@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:spotify/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:spotify/features/auth/data/sources/auth_firebase_service.dart';
 import 'package:spotify/features/auth/domain/repository/auth.dart';
+import 'package:spotify/features/auth/domain/use_cases/get_user_data.dart';
 import 'package:spotify/features/auth/domain/use_cases/signin.dart';
 import 'package:spotify/features/auth/domain/use_cases/signup.dart';
 import 'package:spotify/features/home/data/repository/song.dart';
@@ -54,5 +55,9 @@ Future<void> initializeDependencies() async {
 
   getIt.registerSingleton<IsFavoriteSongUseCase>(
     IsFavoriteSongUseCase(),
+  );
+
+  getIt.registerSingleton<GetUserDataUseCase>(
+    GetUserDataUseCase(),
   );
 }
