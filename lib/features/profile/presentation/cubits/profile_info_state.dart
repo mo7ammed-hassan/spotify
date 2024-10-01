@@ -11,3 +11,5 @@ class ProfileInfoLoaded extends ProfileInfoState {
 
   ProfileInfoLoaded({required this.user});
 }
+
+class ProfileInfoFaliure extends ProfileInfoState {}
