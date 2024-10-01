@@ -32,7 +32,7 @@ class SongPlayerBody extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        '${AppURLs.coverFireStorage}${song.artist}$index.jpeg?${AppURLs.mediaAlt}',
+                        '${AppURLs.coverFireStorage}${song.artist} - ${song.title}.jpeg?${AppURLs.mediaAlt}',
                       ),
                     ),
                   ),

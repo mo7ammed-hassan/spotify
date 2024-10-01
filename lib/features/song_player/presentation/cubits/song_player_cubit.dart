@@ -23,21 +23,21 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
   }
 
   void updateSongPlayer() {
-    emit(
-      SongPalyerLoaded(),
-    );
+    if (!isClosed) {
+      emit(SongPalyerLoaded());
+    }
   }
 
   void loadSong(String songUrl) async {
     try {
       await audioPlayer.setUrl(songUrl);
-      emit(
-        SongPalyerLoaded(),
-      );
-    } on Exception {
-      emit(
-        SongPlayerFailure(),
-      );
+      if (!isClosed) {
+        emit(SongPalyerLoaded());
+      }
+    } catch (e) {
+      if (!isClosed) {
+        emit(SongPlayerFailure());
+      }
     }
   }
 
@@ -47,9 +47,11 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
     } else {
       audioPlayer.play();
     }
-    emit(
-      SongPalyerLoaded(),
-    );
+    if (isClosed) {
+      emit(
+        SongPalyerLoaded(),
+      );
+    }
   }
 
   // dispose audio palyer when bloc is close

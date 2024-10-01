@@ -39,7 +39,7 @@ class NewsSongsListView extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: NetworkImage(
-                            '${AppURLs.coverFireStorage}${songs[index].artist}$index.jpeg?${AppURLs.mediaAlt}',
+                            '${AppURLs.coverFireStorage}${songs[index].artist} - ${songs[index].title}.jpeg?${AppURLs.mediaAlt}',
                           ),
                         ),
                       ),
@@ -57,7 +57,7 @@ class NewsSongsListView extends StatelessWidget {
                   songs[index].title,
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 16,
+                    fontSize: 18,
                   ),
                 ),
                 Text(
