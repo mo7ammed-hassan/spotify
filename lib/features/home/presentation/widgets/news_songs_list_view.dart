@@ -14,6 +14,7 @@ class NewsSongsListView extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       separatorBuilder: (context, index) => const SizedBox(width: 14),
       itemCount: songs.length,
+      padding: const EdgeInsets.only(left: 10),
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
