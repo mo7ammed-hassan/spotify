@@ -6,6 +6,6 @@ import 'package:spotify/service_locator.dart';
 class GetPlayListUseCase extends UseCase<Either, dynamic> {
   @override
   Future<Either> call({params}) async {
-    return await getIt<SongRepository>().getPlayList();
+    return await getIt<SongRepository>().getPlayLists();
   }
 }

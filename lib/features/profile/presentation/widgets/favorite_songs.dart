@@ -10,7 +10,7 @@ class FavoriteSongs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => FavoriteSongsCubit()..getFavoriteSongs(),
+      create: (context) => FavoriteSongsCubit()..getUserFavoriteSongs(),
       child: BlocBuilder<FavoriteSongsCubit, FavoriteSongsState>(
         builder: (context, state) {
           if (state is FavoriteSongsLoading) {
@@ -21,10 +21,8 @@ class FavoriteSongs extends StatelessWidget {
           }
           if (state is FavoriteSongsLoaded) {
             return FavoriteSongsListView(
-              songs: state.songs,
+              songs: state.favoriteSongs,
             );
-
-            
           }
           return Container();
         },

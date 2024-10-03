@@ -10,8 +10,8 @@ class SongRepositoryImpl extends SongRepository {
   }
 
   @override
-  Future<Either> getPlayList() async {
-    return await getIt<SongsFirebaseService>().getPlayList();
+  Future<Either> getPlayLists() async {
+    return await getIt<SongsFirebaseService>().getPlayLists();
   }
 
   @override
@@ -26,7 +26,7 @@ class SongRepositoryImpl extends SongRepository {
   }
 
   @override
-  Future<Either> getFavoriteSongs() async {
-    return await getIt<SongsFirebaseService>().getFavoriteSongs();
+  Future<Either> getUserFavoriteSongs() async {
+    return await getIt<SongsFirebaseService>().getUserFavoriteSongs();
   }
 }

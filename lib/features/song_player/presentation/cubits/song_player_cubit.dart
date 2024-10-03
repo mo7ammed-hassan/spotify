@@ -7,7 +7,7 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
 
   Duration audioDuration = Duration.zero;
   Duration audioPosition = Duration.zero;
-
+  
   SongPlayerCubit() : super(SongPlayerLoading()) {
     audioPlayer.positionStream.listen(
       (position) {
@@ -52,6 +52,50 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
         SongPalyerLoaded(),
       );
     }
+  }
+
+  void repeatSong() async {
+    if (audioPlayer.playing) {
+      audioPlayer.setLoopMode(LoopMode.all);
+      audioPlayer.play();
+    }
+    if (isClosed) {
+      emit(
+        SongPalyerLoaded(),
+      );
+    }
+  }
+
+  void playNextSong() async {
+    await audioPlayer.seekToNext();
+    audioPlayer.play();
+    if (isClosed) {
+      emit(
+        SongPalyerLoaded(),
+      );
+    }
+  }
+
+  void playPreviousSong() async {
+    await audioPlayer.seekToPrevious();
+    audioPlayer.play();
+    if (isClosed) {
+      emit(
+        SongPalyerLoaded(),
+      );
+    }
+  }
+
+// Seek audio to a specific position
+  void seekAudio(Duration newPosition) async {
+    await audioPlayer.seek(newPosition);
+    emit(SongPalyerLoaded());
+  }
+
+  // Temporarily update position during slider drag
+  void updateTemporaryPosition(Duration newPosition) {
+    audioPosition = newPosition;
+    emit(SongPalyerLoaded());
   }
 
   // dispose audio palyer when bloc is close

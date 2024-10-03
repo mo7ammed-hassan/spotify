@@ -62,7 +62,7 @@ Future<void> initializeDependencies() async {
     GetUserDataUseCase(),
   );
 
-  getIt.registerSingleton<GetFavoriteSongsUseCase>(
-    GetFavoriteSongsUseCase(),
+  getIt.registerSingleton<GetUserFavoriteSongsUseCase>(
+    GetUserFavoriteSongsUseCase(),
   );
 }

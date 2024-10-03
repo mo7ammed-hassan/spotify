@@ -5,9 +5,9 @@ abstract class FavoriteSongsState {}
 class FavoriteSongsLoading extends FavoriteSongsState {}
 
 class FavoriteSongsLoaded extends FavoriteSongsState {
-  final List<SongEntity> songs;
+  final List<SongEntity> favoriteSongs;
 
-  FavoriteSongsLoaded({required this.songs});
+  FavoriteSongsLoaded({required this.favoriteSongs});
 }
 
 class FavoriteSongsFailure extends FavoriteSongsState {}

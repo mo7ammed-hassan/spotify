@@ -7,22 +7,22 @@ import 'package:spotify/service_locator.dart';
 class FavoriteSongsCubit extends Cubit<FavoriteSongsState> {
   FavoriteSongsCubit() : super(FavoriteSongsLoading());
   List<SongEntity> favoriteSongs = [];
-  Future<void> getFavoriteSongs() async {
-    var returnedSongs = await getIt<GetFavoriteSongsUseCase>().call();
+  Future<void> getUserFavoriteSongs() async {
+    var returnedSongs = await getIt<GetUserFavoriteSongsUseCase>().call();
 
     returnedSongs.fold(
       (l) {
         emit(FavoriteSongsFailure());
       },
-      (data) {
-        favoriteSongs = data;
-        emit(FavoriteSongsLoaded(songs: favoriteSongs));
+      (r) {
+        favoriteSongs = r;
+        emit(FavoriteSongsLoaded(favoriteSongs: favoriteSongs));
       },
     );
   }
 
   void removeFavoriteSong(int index) {
     favoriteSongs.removeAt(index);
-    emit(FavoriteSongsLoaded(songs: favoriteSongs));
+    emit(FavoriteSongsLoaded(favoriteSongs: favoriteSongs));
   }
 }

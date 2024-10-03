@@ -8,10 +8,10 @@ import 'package:spotify/service_locator.dart';
 
 abstract class SongsFirebaseService {
   Future<Either> getNewsSongs();
-  Future<Either> getPlayList();
+  Future<Either> getPlayLists();
   Future<Either> addOrRemoveFavoriteSong({required String songId});
   Future<bool> isFavoriteSong({required String songId});
-  Future<Either> getFavoriteSongs();
+  Future<Either> getUserFavoriteSongs();
 }
 
 class SongsFirebaseServiceImpl extends SongsFirebaseService {
@@ -47,7 +47,7 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
   }
 
   @override
-  Future<Either> getPlayList() async {
+  Future<Either> getPlayLists() async {
     try {
       List<SongEntity> songs = [];
       var response = await FirebaseFirestore.instance
@@ -145,20 +145,21 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
   }
 
   @override
-  Future<Either> getFavoriteSongs() async {
+  Future<Either> getUserFavoriteSongs() async {
     try {
       FirebaseAuth firebaseAuth = FirebaseAuth.instance;
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
       var user = firebaseAuth.currentUser;
 
       String uId = user!.uid;
-      var favoriteSnapshot = await firebaseFirestore
+
+      List<SongEntity> favoriteSongs = [];
+
+      QuerySnapshot favoriteSnapshot = await firebaseFirestore
           .collection('Users')
           .doc(uId)
           .collection('Favorites')
           .get();
-
-      List<SongEntity> favoriteSongs = [];
 
       for (var element in favoriteSnapshot.docs) {
         String songId = element['songId'];
@@ -166,8 +167,10 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
             await firebaseFirestore.collection('Songs').doc(songId).get();
         var songModel = SongModel.fromJson(song.data()!);
         songModel.isFavorite = true;
-        SongEntity songs = songModel.toEntity();
-        favoriteSongs.add(songs);
+        songModel.songId = songId;
+        favoriteSongs.add(
+          songModel.toEntity(),
+        );
       }
 
       return Right(favoriteSongs);

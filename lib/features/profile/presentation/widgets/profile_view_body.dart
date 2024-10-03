@@ -11,7 +11,7 @@ class ProfileViewBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ProfileInfoCard(),
-        SizedBox(height: 20),
+        SizedBox(height: 25),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 3),
           child: Text(
