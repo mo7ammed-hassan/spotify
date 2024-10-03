@@ -26,7 +26,6 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
           .get();
 
       for (var element in response.docs) {
-        // parse json format to dart object (song model)
         var songModel = SongModel.fromJson(element.data());
 
         bool isFavorite = await getIt<IsFavoriteSongUseCase>().call(
@@ -35,7 +34,6 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
         songModel.isFavorite = isFavorite;
         songModel.songId = element.reference.id;
 
-        // use fun that convert song model to song entity
         songs.add(
           songModel.toEntity(),
         );
