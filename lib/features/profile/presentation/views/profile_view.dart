@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
-
-import 'package:spotify/features/home/domain/use_cases/get_album_songs.dart';
 import 'package:spotify/features/profile/presentation/widgets/profile_view_body.dart';
-import 'package:spotify/service_locator.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -19,7 +16,7 @@ class ProfileView extends StatelessWidget {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
         ),
         action: IconButton(
-          onPressed: () async {},
+          onPressed: () {},
           icon: Icon(
             Icons.more_vert_rounded,
             color: context.isDarkMode
