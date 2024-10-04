@@ -29,10 +29,15 @@ class SongRepositoryImpl extends SongRepository {
   Future<Either> getUserFavoriteSongs() async {
     return await getIt<SongsFirebaseService>().getUserFavoriteSongs();
   }
-  
+
   @override
-  Future<Either> getLists() {
-    // TODO: implement getLists
-    throw UnimplementedError();
+  Future<Either> getAlbums() async {
+    return await getIt<SongsFirebaseService>().getAlbums();
+  }
+
+  @override
+  Future<Either> getAlbumSongs({required String artist}) async {
+    return await getIt<SongsFirebaseService>()
+        .getAlbumSongs(artistName: artist);
   }
 }

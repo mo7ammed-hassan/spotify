@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:spotify/features/home/data/models/album.dart';
 import 'package:spotify/features/home/data/models/song.dart';
+import 'package:spotify/features/home/domain/entities/album.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 import 'package:spotify/features/home/domain/use_cases/is_favorite_song.dart';
 import 'package:spotify/service_locator.dart';
@@ -12,7 +14,8 @@ abstract class SongsFirebaseService {
   Future<Either> addOrRemoveFavoriteSong({required String songId});
   Future<bool> isFavoriteSong({required String songId});
   Future<Either> getUserFavoriteSongs();
-  Future<Either> getLists();
+  Future<Either> getAlbums();
+  Future<Either> getAlbumSongs({required String artistName});
 }
 
 class SongsFirebaseServiceImpl extends SongsFirebaseService {
@@ -51,13 +54,9 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
   Future<Either> getPlayLists() async {
     try {
       List<SongEntity> songs = [];
-      var response = await FirebaseFirestore.instance
-          .collection('Songs')
-          //.orderBy('releaseDate', descending: true)
-          .get();
+      var response = await FirebaseFirestore.instance.collection('Songs').get();
 
       for (var element in response.docs) {
-        // parse json format to dart object (song model)
         var songModel = SongModel.fromJson(element.data());
 
         bool isFavorite = await getIt<IsFavoriteSongUseCase>().call(
@@ -66,7 +65,6 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
         songModel.isFavorite = isFavorite;
         songModel.songId = element.reference.id;
 
-        // use fun that convert song model to song entity
         songs.add(
           songModel.toEntity(),
         );
@@ -181,9 +179,47 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
   }
 
   @override
-  Future<Either> getLists() async {
-    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-    firebaseFirestore.collection('Playlists').get();
-    // store each item in playList to display in the ui
+  Future<Either> getAlbums() async {
+    try {
+      List<AlbumEntity> album = [];
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      var collection = await firebaseFirestore.collection('Playlists').get();
+      for (var element in collection.docs) {
+        AlbumModel albumModel = AlbumModel.fromJson(element.data());
+        album.add(albumModel.toEntity());
+      }
+      return Right(album);
+    } catch (e) {
+      return const Left('An error occurred, Please try again.');
+    }
+  }
+
+  @override
+  Future<Either> getAlbumSongs({required String artistName}) async {
+    try {
+      List<SongEntity> songs = [];
+
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+      // find Albums that i need
+      QuerySnapshot playListSnapShot = await firebaseFirestore
+          .collection('Playlists')
+          .where('artist', isEqualTo: artistName)
+          .get();
+      DocumentSnapshot playListDoc = playListSnapShot.docs.first;
+
+      // find songs in the Albums
+      QuerySnapshot<Map<String, dynamic>> songsSnapshot =
+          await playListDoc.reference.collection('songs').get();
+
+      // get each song and convert to SongEntity and add to list
+      for (var songDoc in songsSnapshot.docs) {
+        SongModel songModel = SongModel.fromJson(songDoc.data());
+        songs.add(songModel.toEntity());
+      }
+      return Right(songs);
+    } catch (e) {
+      return const Left('An error occurred, Please try again.');
+    }
   }
 }

@@ -10,8 +10,10 @@ import 'package:spotify/features/home/data/sources/songs_firebase_service.dart';
 import 'package:spotify/features/home/domain/repository/song.dart';
 import 'package:spotify/features/home/domain/use_cases/add_or_remove_favorite_song.dart';
 import 'package:spotify/features/home/domain/use_cases/get_favorites_songs.dart';
+import 'package:spotify/features/home/domain/use_cases/get_albums.dart';
 import 'package:spotify/features/home/domain/use_cases/get_news_songs.dart';
 import 'package:spotify/features/home/domain/use_cases/get_play_list.dart';
+import 'package:spotify/features/home/domain/use_cases/get_album_songs.dart';
 import 'package:spotify/features/home/domain/use_cases/is_favorite_song.dart';
 
 final getIt = GetIt.instance;
@@ -64,5 +66,13 @@ Future<void> initializeDependencies() async {
 
   getIt.registerSingleton<GetUserFavoriteSongsUseCase>(
     GetUserFavoriteSongsUseCase(),
+  );
+
+  getIt.registerSingleton<GetAlbumsUseCase>(
+    GetAlbumsUseCase(),
+  );
+
+  getIt.registerSingleton<GetAlbumSongsUseCase>(
+    GetAlbumSongsUseCase(),
   );
 }
