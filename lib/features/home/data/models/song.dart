@@ -23,6 +23,7 @@ class SongModel {
     artist = data['artist'];
     duration = data['duration'];
     releaseDate = data['releaseDate'];
+    isFavorite = data['isFavorite'] ?? false;
   }
 }
 
@@ -35,7 +36,7 @@ extension SongModelX on SongModel {
       duration: duration ?? 0.0,
       releaseDate: releaseDate ?? Timestamp.now(),
       isFavorite: isFavorite ?? false,
-      songId: songId!,
+      songId: songId ?? '',
     );
   }
 }
