@@ -40,7 +40,9 @@ class HomeView extends StatelessWidget {
         ),
         action: IconButton(
           onPressed: () {
-            context.push(const ProfileView());
+            context.push(
+              const ProfileView(),
+            );
           },
           icon: Icon(
             Icons.more_vert_rounded,
