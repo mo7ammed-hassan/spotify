@@ -4,26 +4,26 @@ import 'package:spotify/common/widgets/button/favorite_button.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 import 'package:spotify/features/song_player/presentation/views/song_player.dart';
 
-class SongsPlayListListView extends StatelessWidget {
+class ArtistSongsListView extends StatelessWidget {
+  const ArtistSongsListView({super.key, required this.songs});
   final List<SongEntity> songs;
-  const SongsPlayListListView({
-    super.key,
-    required this.songs,
-  });
-
   @override
   Widget build(BuildContext context) {
-    return SliverList.separated(
-      itemCount: songs.length,
-      itemBuilder: (context, index) {
-        return _playListSongCard(
-          context,
-          song: songs[index],
-          index: index,
-        );
-      },
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 28,
+    return Expanded(
+      child: ListView.separated(
+        shrinkWrap: true,
+        itemCount: songs.length,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return _playListSongCard(
+            context,
+            song: songs[index],
+            index: index,
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(
+          height: 28,
+        ),
       ),
     );
   }

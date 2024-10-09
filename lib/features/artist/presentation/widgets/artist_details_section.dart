@@ -11,7 +11,7 @@ class ArtistDetailsSection extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: MediaQuery.sizeOf(context).height * 0.38,
+          height: MediaQuery.sizeOf(context).height * 0.33,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
               bottomRight: Radius.circular(60),
@@ -33,7 +33,7 @@ class ArtistDetailsSection extends StatelessWidget {
           '2 Album , 67 Track',
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         const Text(
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Turpis adipiscing vestibulum orci enim, nascetur vitae ',
           textAlign: TextAlign.center,
