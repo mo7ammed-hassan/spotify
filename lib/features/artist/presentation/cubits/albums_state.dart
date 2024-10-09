@@ -1,8 +1,6 @@
-import 'package:spotify/features/home/domain/entities/album.dart';
+import 'package:spotify/features/artist/domain/entities/album.dart';
 
 abstract class AlbumsState {}
-
-class AlbumsInitial extends AlbumsState {}
 
 class AlbumsLoading extends AlbumsState {}
 
@@ -11,3 +9,5 @@ class AlbumsLoaded extends AlbumsState {
 
   AlbumsLoaded({required this.albums});
 }
+
+class AlbumsFailure extends AlbumsState {}

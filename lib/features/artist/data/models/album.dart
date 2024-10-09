@@ -1,4 +1,4 @@
-import 'package:spotify/features/home/domain/entities/album.dart';
+import 'package:spotify/features/artist/domain/entities/album.dart';
 
 class AlbumModel {
   String? artist;

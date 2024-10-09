@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:spotify/features/home/data/models/album.dart';
+import 'package:spotify/features/artist/data/models/album.dart';
 import 'package:spotify/features/home/data/models/song.dart';
-import 'package:spotify/features/home/domain/entities/album.dart';
+import 'package:spotify/features/artist/domain/entities/album.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 import 'package:spotify/features/home/domain/use_cases/is_favorite_song.dart';
 import 'package:spotify/service_locator.dart';
