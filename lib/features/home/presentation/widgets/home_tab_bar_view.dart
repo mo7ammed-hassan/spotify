@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/features/home/presentation/widgets/artist_tab_bar.dart';
 import 'package:spotify/features/home/presentation/widgets/news_songs.dart';
 
 class HomeTabBarView extends StatelessWidget {
   final TabController? tabController;
   const HomeTabBarView({
     super.key,
-     this.tabController,
+    this.tabController,
   });
 
   @override
@@ -15,9 +16,10 @@ class HomeTabBarView extends StatelessWidget {
       children: [
         const NewsSongs(),
         Container(),
-        Container(),
+        const Artist(),
         Container(),
       ],
     );
   }
 }
+

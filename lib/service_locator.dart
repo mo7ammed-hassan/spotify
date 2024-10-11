@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:spotify/features/artist/data/repository/albums.dart';
 import 'package:spotify/features/artist/domain/repository/albums.dart';
+import 'package:spotify/features/artist/domain/use_case/get_artist_alums.dart';
 import 'package:spotify/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:spotify/features/auth/data/sources/auth_firebase_service.dart';
 import 'package:spotify/features/auth/domain/repository/auth.dart';
@@ -80,5 +81,9 @@ Future<void> initializeDependencies() async {
 
   getIt.registerSingleton<GetAlbumSongsUseCase>(
     GetAlbumSongsUseCase(),
+  );
+
+  getIt.registerSingleton<GetArtistAlbumsUseCase>(
+    GetArtistAlbumsUseCase(),
   );
 }

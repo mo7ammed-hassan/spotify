@@ -45,7 +45,7 @@ class HomeView extends StatelessWidget {
             );
           },
           icon: Icon(
-            Icons.more_vert_rounded,
+            Icons.person,
             color: context.isDarkMode
                 ? const Color(0xffDDDDDD)
                 : const Color(0xff7D7D7D),

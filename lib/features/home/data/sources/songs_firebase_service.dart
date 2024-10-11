@@ -15,6 +15,7 @@ abstract class SongsFirebaseService {
   Future<bool> isFavoriteSong({required String songId});
   Future<Either> getUserFavoriteSongs();
   Future<Either> getAlbums();
+  Future<Either> getArtistAlbums({required String artistName});
   Future<Either> getAlbumSongs({required String artistName});
 }
 
@@ -218,6 +219,26 @@ class SongsFirebaseServiceImpl extends SongsFirebaseService {
         songs.add(songModel.toEntity());
       }
       return Right(songs);
+    } catch (e) {
+      return const Left('An error occurred, Please try again.');
+    }
+  }
+
+  @override
+  Future<Either> getArtistAlbums({required String artistName}) async {
+    try {
+      List<AlbumEntity> artistAlbums = [];
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      var artistAlbumsSnapShot = await firebaseFirestore
+          .collection('Playlists')
+          .where('artist', isEqualTo: artistName)
+          .get();
+
+      for (var element in artistAlbumsSnapShot.docs) {
+        AlbumModel albumModel = AlbumModel.fromJson(element.data());
+        artistAlbums.add(albumModel.toEntity());
+      }
+      return Right(artistAlbums);
     } catch (e) {
       return const Left('An error occurred, Please try again.');
     }

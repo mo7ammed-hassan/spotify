@@ -14,4 +14,10 @@ class AlbumsRepositoryImpl extends AlbumsRepository {
     return await getIt<SongsFirebaseService>()
         .getAlbumSongs(artistName: artist);
   }
+
+  @override
+  Future<Either> getArtistAlbums({required String artist}) async {
+    return await getIt<SongsFirebaseService>()
+        .getArtistAlbums(artistName: artist);
+  }
 }

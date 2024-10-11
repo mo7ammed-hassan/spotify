@@ -22,11 +22,9 @@ class ProfileViewBody extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 18),
         FavoriteSongs(),
       ],
     );
   }
 }
-
-

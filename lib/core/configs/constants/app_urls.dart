@@ -12,6 +12,9 @@ class AppURLs {
       'https://firebasestorage.googleapis.com/v0/b/spotify-010.appspot.com/o/Playlists%2F';
 
   static const playListCover = '%2FPlaylistCover%2F';
+  
+  static const songArtistCover = '%2Fcovers%2F';
+  static const artistSongs = '%2Fsongs%2F';
 
   static const String mediaAlt = 'alt=media';
 }

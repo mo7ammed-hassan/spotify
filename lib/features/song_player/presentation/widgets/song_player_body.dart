@@ -16,8 +16,7 @@ class SongPlayerBody extends StatelessWidget {
     return BlocProvider(
       create: (context) => SongPlayerCubit()
         ..loadSong(
-          '${AppURLs.songFireStorage}${song.artist} - ${song.title}.mp3?${AppURLs.mediaAlt}',
-        ),
+            '${AppURLs.albumsFireStorage}${song.artist}${AppURLs.artistSongs}${song.artist} - ${song.title}.mp3?${AppURLs.mediaAlt}'),
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         child: Column(
@@ -32,7 +31,7 @@ class SongPlayerBody extends StatelessWidget {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                        '${AppURLs.coverFireStorage}${song.artist} - ${song.title}.jpeg?${AppURLs.mediaAlt}',
+                        '${AppURLs.albumsFireStorage}${song.artist}${AppURLs.songArtistCover}${song.artist} - ${song.title}.jpeg?${AppURLs.mediaAlt}',
                       ),
                     ),
                   ),

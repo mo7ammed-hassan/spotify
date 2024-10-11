@@ -9,21 +9,17 @@ class ArtistSongsListView extends StatelessWidget {
   final List<SongEntity> songs;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        shrinkWrap: true,
-        itemCount: songs.length,
-        physics: const NeverScrollableScrollPhysics(),
-        itemBuilder: (context, index) {
-          return _playListSongCard(
-            context,
-            song: songs[index],
-            index: index,
-          );
-        },
-        separatorBuilder: (context, index) => const SizedBox(
-          height: 28,
-        ),
+    return SliverList.separated(
+      itemCount: songs.length,
+      itemBuilder: (context, index) {
+        return _playListSongCard(
+          context,
+          song: songs[index],
+          index: index,
+        );
+      },
+      separatorBuilder: (context, index) => const SizedBox(
+        height: 28,
       ),
     );
   }

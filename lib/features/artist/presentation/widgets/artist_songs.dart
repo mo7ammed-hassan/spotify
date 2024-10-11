@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify/features/artist/presentation/cubits/album_songs_cubit.dart';
 import 'package:spotify/features/artist/presentation/cubits/album_songs_state.dart';
-import 'package:spotify/features/home/presentation/widgets/songs_play_list.dart';
+import 'package:spotify/features/artist/presentation/widgets/artist_songs_list_view.dart';
 
 class ArtistSongs extends StatelessWidget {
-  const ArtistSongs({super.key});
+  final String artist;
+  const ArtistSongs({super.key, required this.artist});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          AlbumSongsCubit()..fetchAlbumSongs(artist: 'Tareq Mohamed'),
+      create: (context) => AlbumSongsCubit()..fetchAlbumSongs(artist: artist),
       child: BlocBuilder<AlbumSongsCubit, AlbumSongsState>(
         builder: (context, state) {
           if (state is AlbumSongsLoading) {
@@ -24,7 +24,7 @@ class ArtistSongs extends StatelessWidget {
           }
 
           if (state is AlbumSongsLoaded) {
-            return SongsPlayListListView(songs: state.albumSongs);
+            return ArtistSongsListView(songs: state.albumSongs);
           }
 
           return SliverToBoxAdapter(child: Container());

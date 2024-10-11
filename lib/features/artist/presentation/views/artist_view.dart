@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/app_bar.dart';
+import 'package:spotify/features/artist/domain/entities/album.dart';
 import 'package:spotify/features/artist/presentation/widgets/artist_view_body.dart';
 
 class ArtistView extends StatelessWidget {
-  const ArtistView({super.key});
+  final AlbumEntity albumEntity;
+  const ArtistView({super.key, required this.albumEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class ArtistView extends StatelessWidget {
           ),
         ),
       ),
-      body: const ArtistViewBody(),
+      body: ArtistViewBody(
+        albumEntity: albumEntity,
+      ),
     );
   }
 }

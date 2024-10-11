@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify/common/widgets/button/favorite_button.dart';
+import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/core/configs/constants/app_urls.dart';
 import 'package:spotify/features/home/domain/entities/song.dart';
 import 'package:spotify/features/profile/presentation/cubits/favorite_songs_cubit.dart';
@@ -67,22 +67,17 @@ class FavoriteSongCard extends StatelessWidget {
               const SizedBox(
                 width: 30,
               ),
-              FavoriteButton(
-                song: song,
-                key: UniqueKey(), // to save state for this button only
-                function: () {
+              IconButton(
+                onPressed: () {
                   context.read<FavoriteSongsCubit>().removeFavoriteSong(index);
                 },
+                icon: Icon(
+                  Icons.remove,
+                  color: context.isDarkMode
+                      ? const Color(0xffE4E4E4)
+                      : const Color(0xffA68C8C),
+                ),
               ),
-              // IconButton(
-              //   onPressed: () {},
-              //   icon: Icon(
-              //     Icons.har,
-                  // color: context.isDarkMode
-                  //     ? const Color(0xffE4E4E4)
-                  //     : const Color(0xffA68C8C),
-              //   ),
-              // ),
             ],
           )
         ],
