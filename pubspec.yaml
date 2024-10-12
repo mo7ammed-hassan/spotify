@@ -44,6 +44,7 @@ dependencies:
   dartz: ^0.10.1
   cloud_firestore: ^5.4.3
   just_audio: ^0.9.40
+  responsive_framework: ^1.5.1
   
   
 
