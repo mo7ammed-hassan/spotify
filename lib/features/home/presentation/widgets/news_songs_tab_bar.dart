@@ -4,8 +4,8 @@ import 'package:spotify/features/home/presentation/cubits/news_songs_cubit.dart'
 import 'package:spotify/features/home/presentation/cubits/news_songs_state.dart';
 import 'package:spotify/features/home/presentation/widgets/news_songs_list_view.dart';
 
-class NewsSongs extends StatelessWidget {
-  const NewsSongs({super.key});
+class NewsSongsTabBar extends StatelessWidget {
+  const NewsSongsTabBar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:spotify/features/artist/presentation/cubits/albums_cubit.dart';
 import 'package:spotify/features/artist/presentation/cubits/albums_state.dart';
 import 'package:spotify/features/home/presentation/widgets/artist_list_view.dart';
 
-class Artist extends StatelessWidget {
-  const Artist({super.key});
+class ArtistTabBar extends StatelessWidget {
+  const ArtistTabBar({super.key});
 
   @override
   Widget build(BuildContext context) {
