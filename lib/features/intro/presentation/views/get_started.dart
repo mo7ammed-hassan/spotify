@@ -62,7 +62,7 @@ class GetStartedView extends StatelessWidget {
                 BasicAppButton(
                   title: 'Get started',
                   onPressed: () {
-                    context.push(
+                    context.pushSlideTransition(
                       const ChooseModeView(),
                     );
                   },

@@ -71,7 +71,9 @@ class SignupOrSigninView extends StatelessWidget {
                         child: BasicAppButton(
                           title: 'Register',
                           onPressed: () {
-                            context.push(const SignupView());
+                            context.pushScaleTransition(
+                              const SignupView(),
+                            );
                           },
                         ),
                       ),
@@ -82,7 +84,9 @@ class SignupOrSigninView extends StatelessWidget {
                         flex: 1,
                         child: TextButton(
                           onPressed: () {
-                            context.push(const SigninView());
+                            context.pushScaleTransition(
+                              const SigninView(),
+                            );
                           },
                           child: Text(
                             'Sign in',

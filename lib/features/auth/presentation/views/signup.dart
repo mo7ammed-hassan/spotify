@@ -23,7 +23,9 @@ class SignupView extends StatelessWidget {
       body: const SignupBody(),
       bottomNavigationBar: AuthActionText(
         onPressed: () {
-          context.push(const SigninView());
+          context.pushScaleTransition(
+            const SigninView(),
+          );
         },
         title: 'Do you have an account?',
         actionText: 'sign In',

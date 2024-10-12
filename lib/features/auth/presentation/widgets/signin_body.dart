@@ -68,7 +68,9 @@ class _SigninBodyState extends State<SigninBody> {
                   context.showSnackBar(l);
                 },
                 (r) {
-                  context.pushAndRemoveUtil(const HomeView());
+                  context.pushAndRemoveUtil(
+                    const HomeView(),
+                  );
                 },
               );
             },

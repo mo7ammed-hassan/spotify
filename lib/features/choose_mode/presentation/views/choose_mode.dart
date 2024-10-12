@@ -53,7 +53,7 @@ class ChooseModeView extends StatelessWidget {
                 BasicAppButton(
                   title: 'Continue',
                   onPressed: () {
-                    context.push(
+                    context.pushSlideTransition(
                       const SignupOrSigninView(),
                     );
                   },

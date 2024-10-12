@@ -19,7 +19,7 @@ class ArtistListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.push(
+            context.pushSlideTransition(
               ArtistView(
                 albumEntity: album[index],
               ),

@@ -38,7 +38,7 @@ class HomeView extends StatelessWidget {
         ),
         action: IconButton(
           onPressed: () {
-            context.push(
+            context.pushScaleTransition(
               const ProfileView(),
             );
           },
